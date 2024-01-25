@@ -1,5 +1,5 @@
 -- add basic settings
-require("basic")
+require("base")
 
 -- lazy.git
 if vim.fn.executable('git') == 1 and vim.version().minor >= 8 then
