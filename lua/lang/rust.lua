@@ -13,5 +13,6 @@ end
 M.setup = function()
 end
 M.dependencies = dependencies
+M.lsp = "rust_analyzer"
 
 return M

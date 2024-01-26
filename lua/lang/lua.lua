@@ -9,5 +9,6 @@ end
 
 M.setup = setup
 M.dependencies = {}
+M.lsp = "lua_ls"
 
 return M
