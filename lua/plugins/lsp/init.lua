@@ -5,7 +5,8 @@ local lang = require("lang")
 M[1] = "neovim/nvim-lspconfig"
 vim.list_extend(dependencies, {
     require [[plugins.lsp.mason]],
-    require [[plugins.lsp.mason-lspconfig]]
+    require [[plugins.lsp.mason-lspconfig]],
+    require [[plugins.lsp.lspsaga]]
 })
 vim.list_extend(dependencies, lang.dependencies)
 
