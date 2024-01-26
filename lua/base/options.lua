@@ -4,9 +4,7 @@ local global = vim.g
 
 ------
 
-local get_os = function()
-    return package.config:sub(1, 1) == "\\" and "win" or "unix"
-end
+local get_os = require("fn").get_os
 local undo_dir = vim.fn.stdpath('data') .. [[/undo]]
 if get_os() == "win" then
     local term_gui_color = true
