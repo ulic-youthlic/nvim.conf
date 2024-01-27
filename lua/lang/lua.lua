@@ -1,23 +1,55 @@
 local M = {}
-local is_command = require("fn").is_command
 
 local setup = function()
+    require("lspconfig").lua_ls.setup {
+        settings = {
+            Lua = {
+                completion = {
+                    callSnippet = "Replace"
+                },
+            },
+        },
+    }
 end
-local lsp = nil
-local parser = {}
-
--- neovim configuration written on lua
-if is_command("lua") or is_command("luajit") or is_command("nvim") then
-    setup = function()
-        require("lspconfig").lua_ls.setup {}
-    end
-    lsp = "lua_ls"
-    parser = { "lua" }
+local lsp = "lua_ls"
+local parser = { "lua" }
+local opt = {
+    library = {
+        enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
+        -- these settings will be used for your Neovim config directory
+        runtime = true, -- runtime path
+        types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+        plugins = true, -- installed opt or start plugins in packpath
+        -- you can also specify the list of plugins to make available as a workspace library
+        -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+    },
+    setup_jsonls = true, -- configures jsonls to provide completion for project specific .luarc.json files
+    -- for your Neovim config directory, the config.library settings will be used as is
+    -- for plugin directories (root_dirs having a /lua directory), config.library.plugins will be disabled
+    -- for any other directory, config.library.enabled will be set to false
+    override = function(root_dir, options) end,
+    -- With lspconfig, Neodev will automatically setup your lua-language-server
+    -- If you disable this, then you have to set {before_init=require("neodev.lsp").before_init}
+    -- in your lsp start options
+    lspconfig = true,
+    -- much faster, but needs a recent built of lua-language-server
+    -- needs lua-language-server >= 3.6.0
+    pathStrict = true,
+}
+local config = function()
+    require("neodev").setup(opt)
 end
+local dependencies = {
+    {
+        "folke/neodev.nvim",
+        config = config,
+        ft = "lua"
+    }
+}
 
 M.setup = setup
-M.dependencies = {}
-M.lsp = lsp 
+M.dependencies = dependencies
+M.lsp = lsp
 M.parser = parser
 
 return M
