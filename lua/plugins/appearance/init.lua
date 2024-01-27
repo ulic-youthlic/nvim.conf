@@ -46,7 +46,7 @@ local opt = {
         -- "telescope",
         -- "trouble",
         "which-key",
-        -- "nvim-notify",
+        "nvim-notify",
     },
     disable = {
         colored_cursor = false, -- Disable the colored cursor
@@ -76,5 +76,6 @@ M[1] = theme
 M[2] = require(prefix .. [[.icons]])
 M[3] = require(prefix .. [[.indent]])
 M[4] = require(prefix .. [[.gitsigns]])
+M[5] = require(prefix .. [[.notify]])
 
 return M
