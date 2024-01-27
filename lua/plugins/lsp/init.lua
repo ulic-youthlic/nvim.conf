@@ -1,6 +1,7 @@
 local M = {}
 local dependencies = {}
 local lang = require("lang")
+local ft = lang.parser
 
 M[1] = "neovim/nvim-lspconfig"
 vim.list_extend(dependencies, {
@@ -16,5 +17,6 @@ end
 
 M.config = config
 M.dependencies = dependencies
+M.ft = ft
 
 return M
