@@ -1,24 +1,11 @@
 local M = {}
 
-local setup = function()
-    require("lspconfig").lua_ls.setup {
-        settings = {
-            Lua = {
-                completion = {
-                    callSnippet = "Replace"
-                },
-            },
-        },
-    }
-end
-local lsp = "lua_ls"
-local parser = { "lua" }
 local opt = {
     library = {
         enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
         -- these settings will be used for your Neovim config directory
         runtime = true, -- runtime path
-        types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+        types = true,   -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
         plugins = true, -- installed opt or start plugins in packpath
         -- you can also specify the list of plugins to make available as a workspace library
         -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
@@ -39,17 +26,9 @@ local opt = {
 local config = function()
     require("neodev").setup(opt)
 end
-local dependencies = {
-    {
-        "folke/neodev.nvim",
-        config = config,
-        ft = "lua"
-    }
-}
 
-M.setup = setup
-M.dependencies = dependencies
-M.lsp = lsp
-M.parser = parser
+M[1] = "folke/neodev.nvim"
+M.config = config
+M.ft = "lua"
 
 return M
