@@ -1,0 +1,22 @@
+local M = {}
+
+M[1] = [[rainbowhxch/accelerated-jk.nvim]]
+M.event = [[VeryLazy]]
+local opt = {
+    mode = 'time_driven',
+    enable_deceleration = false,
+    acceleration_motions = {},
+    acceleration_limit = 150,
+    acceleration_table = { 7, 12, 17, 21, 24, 26, 28, 30 },
+    -- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
+    deceleration_table = { { 150, 9999 } }
+}
+M.config = function()
+    require("accelerated-jk").setup(opt)
+end
+M.keys = {
+    { "j", [[<Plug>(accelerated_jk_gj)]], { "n", "v" }, { desc = [[Down]] } },
+    { "k", [[<Plug>(accelerated_jk_gk)]], { "n", "v" }, { desc = [[Up]] } },
+}
+
+return M
