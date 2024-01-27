@@ -12,13 +12,16 @@ local setup = function()
 end
 local dependencies = {}
 local lsp = {}
+local parser = {}
 for _, lang in pairs(langs) do
     vim.list_extend(dependencies, require([[lang.]] .. lang).dependencies)
     vim.list_extend(lsp, { require([[lang.]] .. lang).lsp })
+    vim.list_extend(parser, require([[lang.]] .. lang).parser)
 end
 
 M.setup = setup
 M.dependencies = dependencies
 M.lsp = lsp
+M.parser = parser
 
 return M

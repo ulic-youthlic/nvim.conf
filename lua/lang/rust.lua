@@ -4,6 +4,7 @@ local dependencies = {}
 local lsp = nil
 local setup = function()
 end
+local parser = {}
 
 if is_command("rustc") then
     setup = function()
@@ -18,10 +19,12 @@ if is_command("rustc") then
         } 
     }
     lsp = "rust_analyzer"
+    parser = { "rust" }
 end
 
 M.setup = setup
 M.dependencies = dependencies
 M.lsp = lsp
+M.parser = parser
 
 return M
