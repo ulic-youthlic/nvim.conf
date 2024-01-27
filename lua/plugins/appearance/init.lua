@@ -25,7 +25,7 @@ local opt = {
         -- "eyeliner",
         -- "fidget",
         -- "flash",
-        -- "gitsigns",
+        "gitsigns",
         -- "harpoon",
         -- "hop",
         -- "illuminate",
@@ -75,5 +75,6 @@ end
 M[1] = theme
 M[2] = require(prefix .. [[.icons]])
 M[3] = require(prefix .. [[.indent]])
+M[4] = require(prefix .. [[.gitsigns]])
 
 return M
