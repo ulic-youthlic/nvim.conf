@@ -1,12 +1,12 @@
 local M = {}
 local opt = {
-    render = "compact",
+    render = "wrapped-compact",
     stages = "slide",
     max_width = function()
         local width = vim.api.nvim_win_get_width(0)
-        return width / 5
+        return width / 4
     end,
-    timeout = 250
+    timeout = 300
 }
 
 M[1] = 'rcarriga/nvim-notify'
