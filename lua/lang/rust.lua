@@ -15,7 +15,8 @@ if is_command("rustc") then
             'vxpm/ferris.nvim',
             config = function()
                 require("ferris").setup {}
-            end
+            end,
+            ft = [[rust]]
         } 
     }
     lsp = "rust_analyzer"
