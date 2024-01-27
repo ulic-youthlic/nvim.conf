@@ -50,6 +50,7 @@ end
 if is_command("git") then
     M[1] = [[lewis6991/gitsigns.nvim]]
     M.config = config
+    M.event = "VeryLazy"
 end
 
 return M
