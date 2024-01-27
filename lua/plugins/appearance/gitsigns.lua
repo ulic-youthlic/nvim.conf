@@ -47,7 +47,9 @@ local config = function()
     }
 end
 
-M[1] = [[lewis6991/gitsigns.nvim]]
-M.config = config
+if is_command("git") then
+    M[1] = [[lewis6991/gitsigns.nvim]]
+    M.config = config
+end
 
 return M
