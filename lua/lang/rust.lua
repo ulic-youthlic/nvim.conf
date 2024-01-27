@@ -1,27 +1,19 @@
 local M = {}
-local is_command = require("fn").is_command
-local dependencies = {}
-local lsp = nil
-local setup = function()
-end
-local parser = {}
 
-if is_command("rustc") then
-    setup = function()
-        require("lspconfig").rust_analyzer.setup {}
-    end
-    dependencies = {
-        {
-            'vxpm/ferris.nvim',
-            config = function()
-                require("ferris").setup {}
-            end,
-            ft = [[rust]]
-        } 
-    }
-    lsp = "rust_analyzer"
-    parser = { "rust" }
+local setup = function()
+    require("lspconfig").rust_analyzer.setup {}
 end
+local dependencies = {
+    {
+        'vxpm/ferris.nvim',
+        config = function()
+            require("ferris").setup {}
+        end,
+        ft = [[rust]]
+    }
+}
+local lsp = "rust_analyzer"
+local parser = { "rust" }
 
 M.setup = setup
 M.dependencies = dependencies

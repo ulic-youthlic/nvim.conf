@@ -72,9 +72,13 @@ theme.config = function()
     require("material.functions").change_style("deep ocean")
 end
 
+local is_command = require("fn").is_command
+
 M[1] = theme
 M[2] = require(prefix .. [[.icons]])
 M[3] = require(prefix .. [[.indent]])
-M[4] = require(prefix .. [[.gitsigns]])
+if is_command("git") then
+    vim.list_extend(M, { require(prefix .. [[.gitsigns]]) })
+end
 
 return M
