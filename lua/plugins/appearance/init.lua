@@ -45,7 +45,7 @@ local opt = {
         -- "sneak",
         -- "telescope",
         -- "trouble",
-        -- "which-key",
+        "which-key",
         -- "nvim-notify",
     },
     disable = {
