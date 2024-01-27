@@ -1,4 +1,5 @@
 local M = {}
+local theme = {}
 local opt = {
     contrast = {
         terminal = true,            -- Enable contrast for the built-in terminal
@@ -55,8 +56,8 @@ local opt = {
         eob_lines = false       -- Hide the end-of-buffer lines
     },
     high_visibility = {
-        lighter = false, -- Enable higher contrast text for lighter style
-        darker = false   -- Enable higher contrast text for darker style
+        lighter = false,       -- Enable higher contrast text for lighter style
+        darker = false         -- Enable higher contrast text for darker style
     },
     lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
     async_loading = true,      -- Load parts of the theme asyncronously for faster startup (turned on by default)
@@ -65,14 +66,14 @@ local opt = {
 }
 local prefix = "plugins.appearance"
 
-M[1] = [[marko-cerovac/material.nvim]]
-M.config = function()
+theme[1] = [[marko-cerovac/material.nvim]]
+theme.config = function()
     require('material').setup(opt)
     require("material.functions").change_style("deep ocean")
 end
-M.dependencies = {
-    require(prefix .. [[.icons]]),
-    require(prefix .. [[.indent]]),
-}
+
+M[1] = theme
+M[2] = require(prefix .. [[.icons]])
+M[3] = require(prefix .. [[.indent]])
 
 return M
