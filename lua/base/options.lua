@@ -6,12 +6,13 @@ local global = vim.g
 
 local get_os = require("fn").get_os
 local undo_dir = vim.fn.stdpath('data') .. [[/undo]]
+local term_gui_color = false
 if get_os() == "win" then
-    local term_gui_color = true
+    term_gui_color = true
 elseif os.getenv([[TERM]]) == 'xterm-256color' then
-    local term_gui_color = true
+    term_gui_color = true
 else
-    local term_gui_color = false
+    term_gui_color = false
 end
 
 ------
