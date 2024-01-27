@@ -5,6 +5,6 @@ M.config = function()
     require("ibl").setup {}
     require("ibl.config").config.scope.enabled = true
 end
-M.event = [[BufAdd]]
+M.event = [[BufEnter]]
 
 return M
