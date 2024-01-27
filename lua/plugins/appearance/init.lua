@@ -43,7 +43,7 @@ local opt = {
         "nvim-web-devicons",
         -- "rainbow-delimiters",
         -- "sneak",
-        -- "telescope",
+        "telescope",
         -- "trouble",
         "which-key",
         "nvim-notify",
