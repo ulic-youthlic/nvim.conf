@@ -6,7 +6,8 @@ end
 local lsp = nil
 local parser = {}
 
-if is_command("lua") or is_command("luajit") then
+-- neovim configuration written on lua
+if is_command("lua") or is_command("luajit") or is_command("nvim") then
     setup = function()
         require("lspconfig").lua_ls.setup {}
     end
