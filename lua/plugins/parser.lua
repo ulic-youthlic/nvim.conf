@@ -1,5 +1,13 @@
 local M = {}
 local parsers = require [[lang]].parser
+vim.list_extend(parsers, {
+    --- for lsp hover
+    "markdown",
+    "markdown_inline",
+    --- for vim help doc
+    "vim",
+    "vimdoc"
+})
 
 M[1] = [[nvim-treesitter/nvim-treesitter]]
 M.config = function()
