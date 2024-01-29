@@ -78,4 +78,8 @@ M[3] = require(prefix .. [[.indent]])
 M[4] = require(prefix .. [[.gitsigns]])
 M[5] = require(prefix .. [[.notify]])
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

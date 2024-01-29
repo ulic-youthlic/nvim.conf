@@ -85,4 +85,8 @@ M.keys = {
     [[:]]
 }
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

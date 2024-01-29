@@ -21,4 +21,8 @@ lsp.ft = ft
 M[1] = lsp
 vim.list_extend(M, dependencies)
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

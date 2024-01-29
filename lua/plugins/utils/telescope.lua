@@ -39,4 +39,8 @@ M.config = function()
 end
 M.event = [[VeryLazy]]
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

@@ -100,4 +100,8 @@ M.config = function()
     require("which-key").setup(opt)
 end
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

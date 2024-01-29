@@ -126,4 +126,8 @@ M.config = function()
     })
 end
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end

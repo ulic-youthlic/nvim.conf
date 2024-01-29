@@ -60,3 +60,8 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+if vim.g.vscode then
+    local vscode = require("vscode-neovim")
+    vim.notify = vscode.notify
+    vim.cmd [[let g:clipcoard = g:vscode_clipboard]]
+end

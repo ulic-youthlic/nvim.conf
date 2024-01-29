@@ -23,4 +23,8 @@ end
 M.ft = parsers
 M.cmd = [[TSInstallInfo]]
 
-return M
+if vim.g.vscode then
+    return {}
+else
+    return M
+end
