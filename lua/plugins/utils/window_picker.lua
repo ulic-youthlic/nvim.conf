@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 
 M[1] = 's1n7ax/nvim-window-picker'
@@ -126,8 +129,4 @@ M.config = function()
     })
 end
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

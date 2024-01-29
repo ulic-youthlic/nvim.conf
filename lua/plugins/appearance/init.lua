@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 local theme = {}
 local opt = {
@@ -101,8 +104,4 @@ M[5] = require(prefix .. [[.notify]])
 M[6] = require(prefix .. [[.scrollview]])
 M[7] = require(prefix .. [[.trouble]])
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

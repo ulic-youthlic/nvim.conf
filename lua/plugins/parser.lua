@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 local parsers = require [[lang]].parser
 vim.list_extend(parsers, {
@@ -23,8 +26,4 @@ end
 M.ft = parsers
 M.cmd = [[TSInstallInfo]]
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 local lang = require("lang")
 local ft = lang.parser
@@ -47,8 +50,4 @@ lsp.ft = ft
 M[1] = lsp
 vim.list_extend(M, dependencies)
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

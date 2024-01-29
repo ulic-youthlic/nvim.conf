@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 
 M[1] = [[hrsh7th/nvim-cmp]]
@@ -85,8 +88,4 @@ M.keys = {
     [[:]]
 }
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

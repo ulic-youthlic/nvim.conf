@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 local is_command = require("fn").is_command
 
@@ -39,8 +42,4 @@ M.config = function()
 end
 M.event = [[VeryLazy]]
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M

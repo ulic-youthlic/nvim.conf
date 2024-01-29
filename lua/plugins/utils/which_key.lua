@@ -1,3 +1,6 @@
+if vim.g.vscode then
+    return {}
+end
 local M = {}
 local opt = {
     plugins = {
@@ -100,8 +103,4 @@ M.config = function()
     require("which-key").setup(opt)
 end
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M
