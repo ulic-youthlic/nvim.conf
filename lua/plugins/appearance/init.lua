@@ -95,6 +95,7 @@ M[3] = require(prefix .. [[.indent]])
 M[4] = require(prefix .. [[.gitsigns]])
 M[5] = require(prefix .. [[.notify]])
 M[6] = require(prefix .. [[.scrollview]])
+M[7] = require(prefix .. [[.trouble]])
 
 if vim.g.vscode then
     return {}
