@@ -11,8 +11,6 @@ if get_os() == "win" then
     term_gui_color = true
 elseif os.getenv([[TERM]]) == 'xterm-256color' then
     term_gui_color = true
-else
-    term_gui_color = false
 end
 
 ------
