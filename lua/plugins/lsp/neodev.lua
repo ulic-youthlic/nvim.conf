@@ -21,7 +21,7 @@ local opt = {
     lspconfig = true,
     -- much faster, but needs a recent built of lua-language-server
     -- needs lua-language-server >= 3.6.0
-    pathStrict = true,
+    pathStrict = false,
 }
 local config = function()
     require("neodev").setup(opt)
