@@ -64,22 +64,26 @@ local opt = {
     custom_colors = nil,       -- If you want to override the default colors, set this to a function
     custom_highlights = {
         DiagnosticUnderlineError = {
-            fg=[[Red]],
+            fg = [[Red]],
             undercurl = true,
         },
         DiagnosticUnderlineWarn = {
-            fg=[[DarkOrange]],
+            fg = [[Orange]],
             underline = true,
         },
         DiagnosticUnderlineInfo = {
-            fg=[[Blue]],
+            fg = [[LightBlue]],
             underline = true,
         },
         DiagnosticUnderlineHint = {
-            fg=[[Green]],
+            fg = [[Purple]],
             underline = true,
-        }
-    },    -- Overwrite highlights with your own
+        },
+        DisgnosticUnderlineOk = {
+            fg = [[LightGreen]],
+            underline = true,
+        },
+    }, -- Overwrite highlights with your own
 }
 local prefix = "plugins.appearance"
 
