@@ -25,7 +25,7 @@ local config = function()
         signs = true,
         underline = true,
         update_in_insert = false,
-        severity_sort = true,
+        severity_sort = false,
     })
 end
 lsp.config = config
