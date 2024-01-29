@@ -12,7 +12,7 @@ local opt = {
     styles = {                      -- Give comments style such as bold, italic, underline etc.
         comments = { italic = true },
         strings = { bold = true },
-        keywords = { underline = true },
+        keywords = { underline = false },
         functions = { bold = true, undercurl = false },
         variables = {},
         operators = {},
@@ -44,7 +44,7 @@ local opt = {
         -- "rainbow-delimiters",
         -- "sneak",
         "telescope",
-        -- "trouble",
+        "trouble",
         "which-key",
         "nvim-notify",
     },
@@ -62,7 +62,24 @@ local opt = {
     lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
     async_loading = true,      -- Load parts of the theme asyncronously for faster startup (turned on by default)
     custom_colors = nil,       -- If you want to override the default colors, set this to a function
-    custom_highlights = {},    -- Overwrite highlights with your own
+    custom_highlights = {
+        DiagnosticUnderlineError = {
+            fg=[[Red]],
+            undercurl = true,
+        },
+        DiagnosticUnderlineWarn = {
+            fg=[[DarkOrange]],
+            underline = true,
+        },
+        DiagnosticUnderlineInfo = {
+            fg=[[Blue]],
+            underline = true,
+        },
+        DiagnosticUnderlineHint = {
+            fg=[[Green]],
+            underline = true,
+        }
+    },    -- Overwrite highlights with your own
 }
 local prefix = "plugins.appearance"
 
