@@ -2,6 +2,7 @@ local M = {}
 
 local setup = function()
     local opt = {
+    before_init=require("neodev.lsp").before_init,
         capabilities = require('cmp_nvim_lsp').default_capabilities(),
         settings = {
             Lua = {

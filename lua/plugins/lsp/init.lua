@@ -9,8 +9,6 @@ lsp.dependencies = {
     require [[plugins.lsp.mason]],
     require [[plugins.lsp.mason-lspconfig]],
     require [[plugins.lsp.lspsaga]],
-    require [[plugins.lsp.neoconf]],
-    require [[plugins.lsp.neodev]],
     require [[plugins.lsp.fidget]],
 }
 local config = function()
