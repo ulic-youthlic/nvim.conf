@@ -11,6 +11,7 @@ lsp.dependencies = {
     require [[plugins.lsp.lspsaga]],
     require [[plugins.lsp.neoconf]],
     require [[plugins.lsp.neodev]],
+    require [[plugins.lsp.fidget]],
 }
 local config = function()
     lang.setup()
