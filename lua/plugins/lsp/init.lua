@@ -15,6 +15,15 @@ lsp.dependencies = {
     require [[plugins.lsp.fidget]],
 }
 
+local format_on_saving = function()
+    vim.api.nvim_create_autocmd({ [[BufWritePre]], [[FileWritePre]] }, {
+        pattern = "*",
+        callback = function()
+            vim.lsp.buf.format()
+        end
+    })
+end
+
 local config = function()
     lang.setup()
     vim.diagnostic.config {
@@ -43,6 +52,7 @@ local config = function()
         underline = true,
         update_in_insert = false,
     }
+    format_on_saving()
 end
 lsp.config = config
 lsp.ft = ft
