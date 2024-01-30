@@ -55,5 +55,6 @@ M.config = function()
     })
 end
 M.event = [[InsertEnter]]
+M.cmd = [[Copilot]]
 
 return M
