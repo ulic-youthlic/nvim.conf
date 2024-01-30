@@ -14,6 +14,15 @@ local auto_cmd = function()
     show_line_diagnostics()
 end
 
+local keymap = function()
+    vim.keymap.set({ [[v]], [[n]] }, "]e", function()
+        require("lspsaga.diagnostic"):goto_next()
+    end, { desc = [[goto the next diagnostic]] })
+    vim.keymap.set({ [[v]], [[n]] }, "[e", function()
+        require("lspsaga.diagnostic"):goto_prev()
+    end, { desc = [[goto the prev diagnostic]] })
+end
+
 M[1] = 'nvimdev/lspsaga.nvim'
 M.config = function()
     require('lspsaga').setup {
@@ -32,6 +41,7 @@ M.config = function()
             diagnostic_only_current = false,
         },
     }
+    keymap()
     auto_cmd()
 end
 
