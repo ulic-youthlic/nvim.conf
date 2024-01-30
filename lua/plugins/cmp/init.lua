@@ -11,6 +11,7 @@ M.dependencies[2] = snip.snip
 local expend = snip.expend
 local sources = {}
 sources = snip.source
+M.dependencies[3] = [[lukas-reineke/cmp-under-comparator]]
 
 local has_words_before = function()
     unpack = unpack or table.unpack
@@ -23,6 +24,18 @@ end
 local config = function()
     local cmp = require [[cmp]]
     cmp.setup({
+        sorting = {
+            comparators = {
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                require "cmp-under-comparator".under,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order,
+            },
+        },
         snippet = {
             expend = expend
         },
