@@ -16,7 +16,22 @@ end
 
 M[1] = 'nvimdev/lspsaga.nvim'
 M.config = function()
-    require('lspsaga').setup {}
+    require('lspsaga').setup {
+        diagnostic = {
+            show_code_action = true,
+            jump_num_shortcut = true,
+            max_width = 0.8,
+            max_height = 0.6,
+            text_hl_follow = true,
+            border_follow = true,
+            extend_relatedInformation = true,
+            show_layout = "float",
+            show_normal_height = 10,
+            max_show_width = 0.9,
+            max_show_height = 0.6,
+            diagnostic_only_current = false,
+        },
+    }
     auto_cmd()
 end
 
