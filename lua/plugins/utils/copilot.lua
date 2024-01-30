@@ -54,5 +54,6 @@ M.config = function()
         server_opts_overrides = {},
     })
 end
+M.event = [[InsertEnter]]
 
 return M
