@@ -4,10 +4,10 @@ local is_command = fn.is_command
 
 --- @param vertically boolean
 --- @return string
-local get_split_cmd = function(vertically)
-    local SP = "sp"
+local get_cmd_with_direction = function(vertically)
+    local SP = { "sp", "sb" }
     if vertically then
-        SP = "vsp"
+        SP = { "vsp", "vert sb" }
     end
     return SP
 end
@@ -37,7 +37,7 @@ end
 
 --- @param vertically boolean
 local function Term(vertically)
-    local sp = get_split_cmd(vertically)
+    local cmd = get_cmd_with_direction(vertically)
     local shell = get_shell()
     local terminal_buffer_number = vim.fn.bufnr("term://")
     local terminal_window_number = vim.fn.bufwinnr("term://")
@@ -46,11 +46,11 @@ local function Term(vertically)
     if terminal_window_number > 0 and window_count > 1 then
         vim.fn.execute(terminal_window_number .. "wincmd c")
     elseif terminal_buffer_number > 0 and terminal_buffer_number ~= vim.fn.bufnr("%") then
-        vim.fn.execute(sp .. " " .. terminal_buffer_number)
+        vim.fn.execute(cmd[2] .. " " .. terminal_buffer_number)
     elseif terminal_buffer_number == vim.fn.bufnr("%") then
-        vim.fn.execute("bprevious | " .. sp .. " " .. terminal_buffer_number .. " | wincmd p")
+        vim.fn.execute("bprevious | " .. cmd[2] .. " " .. terminal_buffer_number .. " | wincmd p")
     else
-        vim.fn.execute(sp .. " term://" .. shell)
+        vim.fn.execute(cmd[1] .. " term://" .. shell)
     end
 end
 
