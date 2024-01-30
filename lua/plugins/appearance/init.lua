@@ -103,5 +103,6 @@ M[4] = require(prefix .. [[.gitsigns]])
 M[5] = require(prefix .. [[.notify]])
 M[6] = require(prefix .. [[.scrollview]])
 M[7] = require(prefix .. [[.trouble]])
+M[8] = require(prefix .. [[.lualine]])
 
 return M
