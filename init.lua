@@ -6,5 +6,5 @@ if require([[fn]]).is_command([[git]]) and vim.version().minor >= 8 then
     require("plugins")
     require("lazy").setup("plugins")
 else
-    vim.api.nvim_err_writeln([[NOT FOUND: git]])
+    vim.notify([[NOT FOUND: git]], vim.diagnotic.severity.ERROR)
 end
