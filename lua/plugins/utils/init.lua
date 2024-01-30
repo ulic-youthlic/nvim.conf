@@ -5,5 +5,6 @@ M[2] = require("plugins.utils.telescope")
 M[3] = require("plugins.utils.jk")
 M[4] = require("plugins.utils.neo_tree")
 M[5] = require("plugins.utils.window_picker")
+M[6] = require("plugins.utils.copilot")
 
 return M
