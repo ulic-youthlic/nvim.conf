@@ -1,6 +1,13 @@
 local M = {}
 local get_os = function()
-    return package.config:sub(1, 1) == [[\\]] and "win" or "unix"
+    local sysname = vim.loop.os_uname().sysname
+    if sysname == "Windows_NT" then
+        return "win"
+    elseif sysname == "Linux" then
+        return "linux"
+    else
+        return "mac"
+    end
 end
 local is_command = function(command)
     if vim.fn.executable(command) == 1 then
