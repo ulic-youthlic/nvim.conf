@@ -44,7 +44,7 @@ local opt = {
         -- "nvim-navic",
         -- "nvim-tree",
         "nvim-web-devicons",
-        -- "rainbow-delimiters",
+        "rainbow-delimiters",
         -- "sneak",
         "telescope",
         "trouble",
@@ -95,14 +95,16 @@ theme.config = function()
     require('material').setup(opt)
     require("material.functions").change_style("deep ocean")
 end
+theme.dependencies = {
+    require("plugins.appearance.indent")
+}
 
 M[1] = theme
 M[2] = require(prefix .. [[.icons]])
-M[3] = require(prefix .. [[.indent]])
-M[4] = require(prefix .. [[.gitsigns]])
-M[5] = require(prefix .. [[.notify]])
-M[6] = require(prefix .. [[.scrollview]])
-M[7] = require(prefix .. [[.trouble]])
-M[8] = require(prefix .. [[.lualine]])
+M[3] = require(prefix .. [[.gitsigns]])
+M[4] = require(prefix .. [[.notify]])
+M[5] = require(prefix .. [[.scrollview]])
+M[6] = require(prefix .. [[.trouble]])
+M[7] = require(prefix .. [[.lualine]])
 
 return M
