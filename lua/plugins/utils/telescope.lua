@@ -10,7 +10,8 @@ M.dependencies = {
 
 local fzf_native = {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+    build =
+    'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
 }
 if not is_command("cmake") then
     fzf_native.build = "make"
@@ -41,5 +42,22 @@ M.config = function()
     load()
 end
 M.event = [[VeryLazy]]
+M.keys = {
+    {
+        [[gr]],
+        function()
+            require("telescope.builtin").lsp_references()
+        end,
+        mode = { [[v]], [[n]] },
+        desc = [[Search word references]]
+    },
+    {
+        [[gd]],
+        function()
+            require("telescope.builtin").lsp_definitions()
+        end,
+        mode = { [[v]], [[n]] }
+    }
+}
 
 return M
