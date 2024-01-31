@@ -27,7 +27,7 @@ local opt = {
         -- "dashboard",
         -- "eyeliner",
         "fidget",
-        -- "flash",
+        "flash",
         "gitsigns",
         -- "harpoon",
         -- "hop",
