@@ -34,7 +34,7 @@ local opt = {
         -- "illuminate",
         "indent-blankline",
         "lspsaga",
-        -- "mini",
+        "mini",
         -- "neogit",
         -- "neotest",
         "neo-tree",
