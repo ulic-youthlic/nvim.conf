@@ -9,5 +9,6 @@ M[6] = require("plugins.utils.copilot")
 M[7] = require("plugins.utils.colorizer")
 M[7] = require("plugins.utils.pairs")
 M[8] = require("plugins.utils.flash")
+M[9] = require("plugins.utils.noice")
 
 return M

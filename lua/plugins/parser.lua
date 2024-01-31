@@ -9,7 +9,9 @@ vim.list_extend(parsers, {
     "markdown_inline",
     --- for vim help doc
     "vim",
-    "vimdoc"
+    "vimdoc",
+    --- for noice
+    "regex",
 })
 
 M[1] = [[nvim-treesitter/nvim-treesitter]]
