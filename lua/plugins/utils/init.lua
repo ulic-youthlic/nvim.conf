@@ -7,5 +7,6 @@ M[4] = require("plugins.utils.neo_tree")
 M[5] = require("plugins.utils.window_picker")
 M[6] = require("plugins.utils.copilot")
 M[7] = require("plugins.utils.colorizer")
+M[7] = require("plugins.utils.pairs")
 
 return M
