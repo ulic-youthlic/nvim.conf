@@ -17,8 +17,4 @@ M[1] = [[dstein64/nvim-scrollview]]
 M.config = config
 M.event = [[BufEnter]]
 
-if vim.g.vscode then
-    return {}
-else
-    return M
-end
+return M
