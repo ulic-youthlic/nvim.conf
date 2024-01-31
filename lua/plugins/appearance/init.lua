@@ -106,5 +106,6 @@ M[4] = require(prefix .. [[.notify]])
 M[5] = require(prefix .. [[.scrollview]])
 M[6] = require(prefix .. [[.trouble]])
 M[7] = require(prefix .. [[.lualine]])
+M[8] = require(prefix .. [[.mini-cursorword]])
 
 return M
