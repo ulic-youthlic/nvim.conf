@@ -19,7 +19,7 @@ if is_command("rustc") then
                 require("ferris").setup {}
             end,
             ft = [[rust]]
-        } 
+        }
     }
     lsp = "rust_analyzer"
     parser = { "rust" }
