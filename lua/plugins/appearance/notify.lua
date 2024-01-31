@@ -3,8 +3,7 @@ local opt = {
     render = "wrapped-compact",
     stages = "slide",
     max_width = function()
-        local width = vim.api.nvim_win_get_width(0)
-        return width / 4
+        return math.ceil(vim.go.co / 4)
     end,
     timeout = 300
 }
