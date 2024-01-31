@@ -8,5 +8,6 @@ M[5] = require("plugins.utils.window_picker")
 M[6] = require("plugins.utils.copilot")
 M[7] = require("plugins.utils.colorizer")
 M[7] = require("plugins.utils.pairs")
+M[8] = require("plugins.utils.flash")
 
 return M
