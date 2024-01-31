@@ -9,6 +9,7 @@ local dependencies = lang.dependencies
 local lsp = {}
 lsp[1] = "neovim/nvim-lspconfig"
 lsp.dependencies = {
+    require [[plugins.lsp.neodev]],
     require [[plugins.lsp.mason]],
     require [[plugins.lsp.mason-lspconfig]],
     require [[plugins.lsp.lspsaga]],

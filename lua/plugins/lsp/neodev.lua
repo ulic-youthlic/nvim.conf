@@ -1,6 +1,3 @@
-if vim.g.vscode then
-    return {}
-end
 local M = {}
 
 local opt = {
@@ -34,7 +31,7 @@ M[1] = "folke/neodev.nvim"
 M.config = config
 M.ft = "lua"
 M.dependencies = {
-    require [[plugins.dev.neoconf]]
+    require [[plugins.lsp.neoconf]]
 }
 
 return M
