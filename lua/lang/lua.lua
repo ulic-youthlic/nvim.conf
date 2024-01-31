@@ -9,6 +9,9 @@ local setup = function()
                 completion = {
                     callSnippet = "Replace"
                 },
+                hint = {
+                    enable = true
+                },
             },
         },
     }

@@ -25,6 +25,15 @@ local format_on_saving = function()
     })
 end
 
+local enable_inlay_hint = function()
+    vim.api.nvim_create_autocmd([[LspAttach]], {
+        pattern = '*',
+        callback = function()
+            vim.lsp.inlay_hint.enable(0, true)
+        end
+    })
+end
+
 local config = function()
     lang.setup()
     vim.diagnostic.config {
@@ -54,6 +63,7 @@ local config = function()
         update_in_insert = false,
     }
     format_on_saving()
+    enable_inlay_hint()
 end
 lsp.config = config
 lsp.ft = ft

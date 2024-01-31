@@ -2,7 +2,8 @@
 require("base")
 
 -- lazy.git
-if require([[fn]]).is_command([[git]]) and vim.version().minor >= 8 then
+-- high version of neovim for inlay_hints
+if require([[fn]]).is_command([[git]]) and vim.version().minor >= 10 then
     require("plugins")
     require("lazy").setup("plugins")
 else
