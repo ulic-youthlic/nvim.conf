@@ -2,7 +2,8 @@ local M = {}
 local langs = {
     "lua",
     "rust",
-    "c_cxx"
+    "c_cxx",
+    "json",
 }
 
 local setup = function()
