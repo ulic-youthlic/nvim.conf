@@ -41,8 +41,31 @@ M.config = function()
             diagnostic_only_current = false,
         },
     }
-    keymap()
     auto_cmd()
 end
+M.keys = {
+    {
+        "]e",
+        function()
+            require("lspsaga.diagnostic"):goto_next()
+        end,
+        mode = { [[v]], [[n]] },
+        desc = [[Goto next diagnostic]]
+    },
+    {
+        "[e",
+        function()
+            require("lspsaga.diagnostic"):goto_prev()
+        end,
+        mode = { [[v]], [[n]] },
+        desc = [[Goto prev diagnostic]]
+    },
+    {
+        "K",
+        "<cmd>Lspsaga hover_doc +unfocus<cr>",
+        mode = [[n]],
+        desc = [[Show hover doc]]
+    }
+}
 
 return M
