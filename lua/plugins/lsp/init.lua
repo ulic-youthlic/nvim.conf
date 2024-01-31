@@ -30,7 +30,8 @@ local enable_inlay_hint = function()
         pattern = '*',
         callback = function()
             vim.lsp.inlay_hint.enable(0, true)
-        end
+        end,
+        once = true,
     })
 end
 
@@ -67,6 +68,22 @@ local config = function()
 end
 lsp.config = config
 lsp.ft = ft
+lsp.keys = {
+    {
+        [[<m-i>]],
+        function()
+            local inlay_hint = vim.lsp.inlay_hint
+            local enable = inlay_hint.enable
+            if inlay_hint.is_enabled() then
+                enable(0, false)
+            else
+                enable(0, true)
+            end
+        end,
+        mode = { [[n]], [[v]] },
+        desc = [[Toggle inlay_hint]]
+    }
+}
 
 M[1] = lsp
 vim.list_extend(M, dependencies)
