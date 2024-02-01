@@ -2,9 +2,10 @@ local M = {}
 
 local show_line_diagnostics = function()
     vim.o.updatetime = 250
-    vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+    vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
         group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
         callback = function()
+            vim.wait(500)
             vim.cmd [[Lspsaga show_line_diagnostics ++unfocus]]
         end
     })
@@ -12,15 +13,6 @@ end
 
 local auto_cmd = function()
     show_line_diagnostics()
-end
-
-local keymap = function()
-    vim.keymap.set({ [[v]], [[n]] }, "]e", function()
-        require("lspsaga.diagnostic"):goto_next()
-    end, { desc = [[goto the next diagnostic]] })
-    vim.keymap.set({ [[v]], [[n]] }, "[e", function()
-        require("lspsaga.diagnostic"):goto_prev()
-    end, { desc = [[goto the prev diagnostic]] })
 end
 
 M[1] = 'nvimdev/lspsaga.nvim'
