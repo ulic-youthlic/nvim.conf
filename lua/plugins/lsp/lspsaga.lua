@@ -1,7 +1,13 @@
 local M = {}
 
 local show_line_diagnostics = function()
-    vim.o.updatetime = 250
+    vim.o.updatetime = 500
+    vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+        callback = function()
+            vim.cmd [[Lspsaga show_cursor_diagnostics ++unfocus]]
+        end
+    })
     vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
         group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
         callback = function()
