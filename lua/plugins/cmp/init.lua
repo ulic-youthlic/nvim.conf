@@ -48,6 +48,7 @@ local config = function()
             ["<c-f>"] = cmp.mapping.scroll_docs(4),
             ["<c-space>"] = cmp.mapping.complete(),
             ["<c-e>"] = cmp.mapping.abort(),
+            ["<cr>"] = cmp.mapping.confirm({ select = false }),
             ["<tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -76,20 +77,6 @@ local config = function()
             { name = 'git' },
         }, {
             { name = 'buffer' },
-        })
-    })
-    cmp.setup.cmdline({ '/', '?' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-            { name = 'buffer' }
-        }
-    })
-    cmp.setup.cmdline({ ':' }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-            { name = 'path' },
-        }, {
-            { name = 'cmdline' },
         })
     })
 end
