@@ -15,7 +15,7 @@ end
 
 ------
 
-global.mapleader = [[ ]]
+global.mapleader = [[,]]
 ---@diagnostic disable-next-line: inject-field
 buffer.fileencoding = "utf-8"
 option.backspace = { "indent", "eol", "start" }
