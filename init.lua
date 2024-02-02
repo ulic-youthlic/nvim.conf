@@ -7,5 +7,5 @@ if require([[fn]]).is_command([[git]]) and vim.version().minor >= 10 then
     require("plugins")
     require("lazy").setup("plugins")
 else
-    vim.notify([[NOT FOUND: git]], vim.diagnotic.severity.ERROR)
+    vim.notify([[NOT FOUND git or nvim VERSION is too low]], vim.diagnotic.severity.ERROR)
 end
