@@ -2,6 +2,7 @@ local M = {}
 
 M[1] = "folke/flash.nvim"
 M.event = "VeryLazy"
+---@diagnostic disable-next-line: undefined-doc-name
 ---@type Flash.Config
 M.opts = {}
 -- stylua: ignore

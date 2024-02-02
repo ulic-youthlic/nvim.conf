@@ -3,7 +3,7 @@ local get_os = fn.get_os
 local is_command = fn.is_command
 
 --- @param vertically boolean
---- @return string
+--- @return table
 local get_cmd_with_direction = function(vertically)
     local SP = { "sp", "sb" }
     if vertically then
@@ -39,14 +39,18 @@ end
 local function Term(vertically)
     local cmd = get_cmd_with_direction(vertically)
     local shell = get_shell()
+    ---@diagnostic disable-next-line: param-type-mismatch
     local terminal_buffer_number = vim.fn.bufnr("term://")
+    ---@diagnostic disable-next-line: param-type-mismatch
     local terminal_window_number = vim.fn.bufwinnr("term://")
     local window_count = vim.fn.winnr("$")
 
     if terminal_window_number > 0 and window_count > 1 then
         vim.fn.execute(terminal_window_number .. "wincmd c")
+        ---@diagnostic disable-next-line: param-type-mismatch
     elseif terminal_buffer_number > 0 and terminal_buffer_number ~= vim.fn.bufnr("%") then
         vim.fn.execute(cmd[2] .. " " .. terminal_buffer_number)
+        ---@diagnostic disable-next-line: param-type-mismatch
     elseif terminal_buffer_number == vim.fn.bufnr("%") then
         vim.fn.execute("bprevious | " .. cmd[2] .. " " .. terminal_buffer_number .. " | wincmd p")
     else
