@@ -1,9 +1,7 @@
 local M = {}
 
 M.setup = function()
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-    require("lspconfig").jsonls.setup({
-        capabilities = capabilities,
+    require("lspconfig").jsonls.setup(require("coq").lsp_ensure_capabilities({
         settings = {
             json = {
                 format = {
@@ -15,7 +13,7 @@ M.setup = function()
                 }
             }
         }
-    })
+    }))
 end
 M.lsp = "jsonls"
 M.parser = { [[json]], [[jsonc]] }

@@ -7,9 +7,7 @@ local parser = {}
 
 if is_command("gcc") or is_command("clang") or is_command("cl") then
     setup = function()
-        require("lspconfig").clangd.setup {
-            capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        }
+        require("lspconfig").clangd.setup(require("coq").lsp_ensure_capabilities({}))
     end
     lsp = "clangd"
     parser = { "c", "cpp" }
