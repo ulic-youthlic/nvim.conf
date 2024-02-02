@@ -37,27 +37,39 @@ end
 
 M[1] = [[nvim-telescope/telescope.nvim]]
 M.branch = [[0.1.x]]
+M.event = [[VeryLazy]]
+local keymap = function()
+    local wk = require("which-key")
+    wk.register({
+        d = {
+            function()
+                require("telescope.builtin").lsp_references()
+            end,
+            [[Search word definitions]]
+
+        },
+        r = {
+            function()
+                require("telescope.builtin").lsp_references()
+            end,
+            [[Search word references]]
+
+        }
+    }, {
+        mode = { "n", "v" },
+        prefix = "g"
+    })
+end
+local auto_keymap = function()
+    vim.api.nvim_create_autocmd("LspAttach", {
+        pattern = "*",
+        callback = keymap
+    })
+end
 M.config = function()
     require("telescope").setup(opt)
     load()
+    auto_keymap()
 end
-M.event = [[VeryLazy]]
-M.keys = {
-    {
-        [[gr]],
-        function()
-            require("telescope.builtin").lsp_references()
-        end,
-        mode = { [[v]], [[n]] },
-        desc = [[Search word references]]
-    },
-    {
-        [[gd]],
-        function()
-            require("telescope.builtin").lsp_definitions()
-        end,
-        mode = { [[v]], [[n]] }
-    }
-}
 
 return M
