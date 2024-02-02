@@ -56,12 +56,27 @@ local opts = {
     use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 }
 M.event = [[LspAttach]]
+local keymap = function()
+    local wk = require("which-key")
+    wk.register({
+        x = {
+            name = "trouble list",
+            x = {
+                function() require("trouble").toggle("workspace_diagnostics") end,
+                [[Toggle diagnostic list]]
+            },
+            q = {
+                function() require("trouble").toggle("quickfix") end,
+                [[toggle quickfix list]]
+            }
+        }
+    }, {
+        prefix = "<leader>",
+    })
+end
 M.config = function()
-    local trouble = require("trouble")
-    trouble.setup(opts)
-    vim.keymap.set("n", "<leader>xx", function() trouble.toggle("workspace_diagnostics") end,
-        { desc = [[Toggle diagnostic list]] })
-    vim.keymap.set("n", "<leader>xq", function() trouble.toggle("quickfix") end, { desc = [[Toggle quickfix list]] })
+    require("trouble").setup(opts)
+    keymap()
 end
 
 return M
