@@ -19,7 +19,7 @@ if is_command("rustc") then
             ft = [[rust]]
         }
     }
-    lsp = "rust_analyzer"
+    lsp = { "rust_analyzer" }
     parser = { "rust" }
 end
 

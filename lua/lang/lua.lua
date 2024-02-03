@@ -17,7 +17,9 @@ local setup = function()
     local coq = require("coq")
     require("lspconfig").lua_ls.setup(coq.lsp_ensure_capabilities(opt))
 end
-local lsp = "lua_ls"
+local lsp = {
+    "lua_ls"
+}
 local parser = { "lua" }
 
 M.setup = setup
