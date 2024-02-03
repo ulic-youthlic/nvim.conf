@@ -3,6 +3,18 @@ if vim.g.vscode then
 end
 
 local M = {}
+local auto_cmd = function()
+    vim.api.nvim_create_autocmd("InsertEnter", {
+        pattern = "*",
+        callback = function()
+            vim.cmd [[COQnow]]
+        end,
+        once = true
+    })
+end
+local config = function()
+    auto_cmd()
+end
 
 M[1] = [[ms-jpq/coq_nvim]]
 M.branch = "coq"
@@ -13,5 +25,6 @@ M.dependencies = {
     },
 }
 M.event = [[InsertEnter]]
+M.config = config
 
 return M
