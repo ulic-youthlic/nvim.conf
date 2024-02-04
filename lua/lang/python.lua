@@ -12,10 +12,10 @@ if is_command("python") then
         "python"
     }
     lsp = {
-        [[jedi_language_server]]
+        [[pylsp]]
     }
     setup = function()
-        require("lspconfig").jedi_language_server.setup {}
+        require("lspconfig").pylsp.setup {}
     end
 end
 
