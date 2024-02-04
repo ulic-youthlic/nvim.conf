@@ -5,7 +5,6 @@ local show_line_diagnostics = function()
     vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
         group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
         callback = function()
-            vim.wait(500)
             vim.cmd [[Lspsaga show_line_diagnostics ++unfocus]]
         end
     })
