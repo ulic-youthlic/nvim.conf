@@ -4,6 +4,7 @@ local langs = {
     "rust",
     "c_cxx",
     "json",
+    "python",
 }
 
 local setup = function()
