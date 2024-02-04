@@ -34,6 +34,26 @@ local enable_inlay_hint = function()
         once = true,
     })
 end
+local inlay_hint_toggle = function()
+    require("which-key").register({
+        ["<m-i>"] = {
+            function()
+                local inlay_hint = vim.lsp.inlay_hint
+                local enable = inlay_hint.enable
+                if inlay_hint.is_enabled() then
+                    enable(0, false)
+                else
+                    enable(0, true)
+                end
+            end,
+            [[Toggle inlay_hint]],
+        },
+    }, {
+        mode = {
+            [[n]], [[v]]
+        }
+    })
+end
 
 local config = function()
     lang.setup()
@@ -65,25 +85,10 @@ local config = function()
     }
     format_on_saving()
     enable_inlay_hint()
+    inlay_hint_toggle()
 end
 lsp.config = config
 lsp.ft = ft
-lsp.keys = {
-    {
-        [[<m-i>]],
-        function()
-            local inlay_hint = vim.lsp.inlay_hint
-            local enable = inlay_hint.enable
-            if inlay_hint.is_enabled() then
-                enable(0, false)
-            else
-                enable(0, true)
-            end
-        end,
-        mode = { [[n]], [[v]] },
-        desc = [[Toggle inlay_hint]]
-    }
-}
 
 M[1] = lsp
 vim.list_extend(M, dependencies)
