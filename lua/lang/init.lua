@@ -5,6 +5,7 @@ local langs = {
     "c_cxx",
     "json",
     "python",
+    "bash",
 }
 
 local setup = function()
@@ -15,15 +16,18 @@ end
 local dependencies = {}
 local lsp = {}
 local parser = {}
+local ft = {}
 for _, lang in pairs(langs) do
     vim.list_extend(dependencies, require([[lang.]] .. lang).dependencies)
     vim.list_extend(lsp, require([[lang.]] .. lang).lsp)
     vim.list_extend(parser, require([[lang.]] .. lang).parser)
+    vim.list_extend(ft, require([[lang.]] .. lang).ft)
 end
 
 M.setup = setup
 M.dependencies = dependencies
 M.lsp = lsp
 M.parser = parser
+M.ft = ft
 
 return M

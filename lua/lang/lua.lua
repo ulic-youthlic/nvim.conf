@@ -21,10 +21,12 @@ local lsp = {
     "lua_ls"
 }
 local parser = { "lua" }
+local ft = { "lua" }
 
 M.setup = setup
 M.lsp = lsp
 M.parser = parser
 M.dependencies = {}
+M.ft = ft
 
 return M

@@ -17,6 +17,7 @@ M.setup = function()
 end
 M.lsp = { "jsonls" }
 M.parser = { [[json]], [[jsonc]] }
+M.ft = { [[json]], [[jsonc]] }
 M.dependencies = {
     [[b0o/SchemaStore.nvim]],
 }

@@ -3,7 +3,7 @@ if vim.g.vscode then
 end
 local M = {}
 local lang = require("lang")
-local ft = lang.parser
+local ft = lang.ft
 local dependencies = lang.dependencies
 
 local lsp = {}

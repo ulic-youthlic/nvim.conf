@@ -4,6 +4,7 @@ local setup = function()
 end
 local lsp = nil
 local parser = {}
+local ft = {}
 
 if is_command("gcc") or is_command("clang") or is_command("cl") then
     setup = function()
@@ -11,6 +12,10 @@ if is_command("gcc") or is_command("clang") or is_command("cl") then
     end
     lsp = { "clangd" }
     parser = { "c", "cpp" }
+    ft = {
+        "c",
+        "cpp",
+    }
 end
 
 
@@ -18,5 +23,6 @@ M.setup = setup
 M.dependencies = {}
 M.lsp = lsp
 M.parser = parser
+M.ft = ft
 
 return M
