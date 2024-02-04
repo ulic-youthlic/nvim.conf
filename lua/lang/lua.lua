@@ -3,7 +3,6 @@ local M = {}
 local setup = function()
     local opt = {
         before_init = require("neodev.lsp").before_init,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
         settings = {
             Lua = {
                 completion = {
@@ -15,9 +14,12 @@ local setup = function()
             },
         },
     }
-    require("lspconfig").lua_ls.setup(opt)
+    local coq = require("coq")
+    require("lspconfig").lua_ls.setup(coq.lsp_ensure_capabilities(opt))
 end
-local lsp = "lua_ls"
+local lsp = {
+    "lua_ls"
+}
 local parser = { "lua" }
 
 M.setup = setup

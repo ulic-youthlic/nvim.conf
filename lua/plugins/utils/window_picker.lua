@@ -127,6 +127,18 @@ M.config = function()
             },
         },
     })
+    local wk = require("which-key")
+    wk.register({
+        p = {
+            function()
+                local id = require("window-picker").pick_window()
+                vim.api.nvim_set_current_win(id)
+            end,
+            [[Pick a window]]
+        }
+    }, {
+        prefix = [[<leader>]]
+    })
 end
 
 return M

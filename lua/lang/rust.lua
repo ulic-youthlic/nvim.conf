@@ -8,9 +8,7 @@ local parser = {}
 
 if is_command("rustc") then
     setup = function()
-        require("lspconfig").rust_analyzer.setup {
-            capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        }
+        require("lspconfig").rust_analyzer.setup(require("coq").lsp_ensure_capabilities({}))
     end
     dependencies = {
         {
@@ -21,7 +19,7 @@ if is_command("rustc") then
             ft = [[rust]]
         }
     }
-    lsp = "rust_analyzer"
+    lsp = { "rust_analyzer" }
     parser = { "rust" }
 end
 

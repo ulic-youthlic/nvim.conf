@@ -1,7 +1,13 @@
 local M = {}
 
 local show_line_diagnostics = function()
-    vim.o.updatetime = 250
+    vim.o.updatetime = 500
+    vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+        group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+        callback = function()
+            vim.cmd [[Lspsaga show_cursor_diagnostics ++unfocus]]
+        end
+    })
     vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
         group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
         callback = function()
@@ -15,6 +21,35 @@ local auto_cmd = function()
 end
 
 M[1] = 'nvimdev/lspsaga.nvim'
+local keymap = function()
+    require("which-key").register({
+        ["]"] = {
+            e = {
+                function()
+                    require("lspsaga.diagnostic"):goto_next()
+                end,
+                [[Goto next diagnostic]],
+                mode = {
+                    "n",
+                    "v"
+                }
+            }
+        },
+        ["["] = {
+            e = {
+                function()
+                    require("lspsaga.diagnostic"):goto_prev()
+                end,
+                [[Goto prev diagnostic]],
+                mode = { [[v]], [[n]] },
+            }
+        },
+        K = {
+            "<cmd>Lspsaga hover_doc +unfocus<cr>",
+            [[Show hover doc]]
+        },
+    })
+end
 M.config = function()
     require('lspsaga').setup {
         diagnostic = {
@@ -33,30 +68,7 @@ M.config = function()
         },
     }
     auto_cmd()
+    keymap()
 end
-M.keys = {
-    {
-        "]e",
-        function()
-            require("lspsaga.diagnostic"):goto_next()
-        end,
-        mode = { [[v]], [[n]] },
-        desc = [[Goto next diagnostic]]
-    },
-    {
-        "[e",
-        function()
-            require("lspsaga.diagnostic"):goto_prev()
-        end,
-        mode = { [[v]], [[n]] },
-        desc = [[Goto prev diagnostic]]
-    },
-    {
-        "K",
-        "<cmd>Lspsaga hover_doc +unfocus<cr>",
-        mode = [[n]],
-        desc = [[Show hover doc]]
-    }
-}
 
 return M

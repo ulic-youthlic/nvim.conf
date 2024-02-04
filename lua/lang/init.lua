@@ -16,7 +16,7 @@ local lsp = {}
 local parser = {}
 for _, lang in pairs(langs) do
     vim.list_extend(dependencies, require([[lang.]] .. lang).dependencies)
-    vim.list_extend(lsp, { require([[lang.]] .. lang).lsp })
+    vim.list_extend(lsp, require([[lang.]] .. lang).lsp)
     vim.list_extend(parser, require([[lang.]] .. lang).parser)
 end
 

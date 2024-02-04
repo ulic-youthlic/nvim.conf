@@ -39,7 +39,7 @@ local opt = {
         -- "neotest",
         "neo-tree",
         -- "neorg",
-        -- "noice",
+        "noice",
         "nvim-cmp",
         -- "nvim-navic",
         -- "nvim-tree",

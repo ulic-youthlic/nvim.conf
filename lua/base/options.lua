@@ -15,7 +15,8 @@ end
 
 ------
 
-global.mapleader = [[ ]]
+global.mapleader = [[,]]
+---@diagnostic disable-next-line: inject-field
 buffer.fileencoding = "utf-8"
 option.backspace = { "indent", "eol", "start" }
 option.tabstop = 4
@@ -41,6 +42,7 @@ option.backup = false
 option.updatetime = 50
 option.mouse = "a"
 option.undofile = true
+---@diagnostic disable-next-line: assign-type-mismatch
 option.undodir = vim.fn.expand(undo_dir)
 option.exrc = true
 option.scrolloff = 5
