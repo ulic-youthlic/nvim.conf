@@ -16,7 +16,7 @@ if is_command("python") then
         [[pylsp]]
     }
     setup = function()
-        require("lspconfig").pylsp.setup {}
+        require("lspconfig").pylsp.setup(require("coq").lsp_ensure_capabilities {})
     end
     ft = {
         "python"

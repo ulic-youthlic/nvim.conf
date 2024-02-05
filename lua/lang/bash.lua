@@ -11,8 +11,7 @@ M.parser = {
     "bash",
 }
 M.setup = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require("lspconfig").bashls.setup({
+    require("lspconfig").bashls.setup(require("coq").lsp_ensure_capabilities {
         filetypes = {
             "bash",
             "sh"
