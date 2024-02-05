@@ -6,6 +6,7 @@ local langs = {
     "json",
     "python",
     "bash",
+    "cmake",
 }
 
 local setup = function()
