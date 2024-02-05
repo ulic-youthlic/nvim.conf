@@ -41,13 +41,6 @@ M.event = [[VeryLazy]]
 local keymap = function()
     local wk = require("which-key")
     wk.register({
-        d = {
-            function()
-                require("telescope.builtin").lsp_references()
-            end,
-            [[Search word definitions]]
-
-        },
         r = {
             function()
                 require("telescope.builtin").lsp_references()

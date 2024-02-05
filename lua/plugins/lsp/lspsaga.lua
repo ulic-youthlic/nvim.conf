@@ -48,6 +48,17 @@ local keymap = function()
             "<cmd>Lspsaga hover_doc +unfocus<cr>",
             [[Show hover doc]]
         },
+        g = {
+            d = {
+                function()
+                    vim.cmd [[Lspsaga goto_definition]]
+                end,
+                [[Goto definition]],
+                mode = {
+                    "v", "n"
+                }
+            },
+        }
     })
 end
 M.config = function()
