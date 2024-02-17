@@ -18,6 +18,10 @@
     "lspconfig": {
         "lua_ls": {
             "Lua.completion.callSnippet": "Replace"
+        },
+        "rust-analyzer": {
+            "rust-analyzer.checkonsave": true,
+            "rust-analyzer.check.command": "clippy"
         }
     }
 }
