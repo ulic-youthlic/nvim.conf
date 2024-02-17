@@ -13,6 +13,18 @@ M.config = function()
     local notify = require("notify")
     notify.setup(opt)
     vim.notify = notify
+    require("which-key").register(
+        {
+            n = {
+                function()
+                    vim.cmd [[Telescope notify]]
+                end,
+                [[Show all notifications]]
+            }
+        }, {
+            prefix = "<leader>"
+        }
+    )
 end
 M.event = [[VeryLazy]]
 
