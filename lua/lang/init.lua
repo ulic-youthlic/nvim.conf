@@ -8,6 +8,7 @@ local langs = {
     "bash",
     "cmake",
     "yaml",
+    "toml",
 }
 
 local setup = function()
