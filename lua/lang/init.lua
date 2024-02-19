@@ -9,6 +9,7 @@ local langs = {
     "cmake",
     "yaml",
     "toml",
+    "js_ts",
 }
 
 local setup = function()
