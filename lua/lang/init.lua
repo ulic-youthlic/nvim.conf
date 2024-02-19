@@ -10,6 +10,7 @@ local langs = {
     "yaml",
     "toml",
     "js_ts",
+    "html",
 }
 
 local setup = function()
